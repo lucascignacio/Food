@@ -12,6 +12,8 @@
             <form action="{{ route('plans.store') }}" class="form" method="POST">
                 @csrf
 
+                @include('admin.includes.alerts')
+
                 <div class="form-group">
                     <label>Nome:</label>
                     <input type="text" name="name" class="form-control" placeholder="Nome:">
