@@ -19,6 +19,7 @@ Route::get('admin/plans/create', [PlanController::class, 'create'])->name('plans
 Route::post('admin/plans', [PlanController::class, 'store'])->name('plans.store');
 Route::get('admin/plans/{url}', [PlanController::class, 'show'])->name('plans.show');
 Route::delete('admin/plans/{url}', [PlanController::class, 'destroy'])->name('plans.destroy');
+Route::any('admin/plans/search', [PlanController::class, 'search'])->name('plans.search');
 
 Route::get('/', function () {
     return view('welcome');
