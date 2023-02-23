@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Models\DetailPlan;
+use App\Models\DetailPlan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
