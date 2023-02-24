@@ -17,9 +17,6 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-
-            @include('admin.includes.alerts')
-
             <ul>
                 <li>
                     <strong>Nome:</strong> {{  $detail->name }}
@@ -33,6 +30,8 @@
 
                  <button type="submit" class="btn btn-danger">Deletar o Detalhe {{ $detail->name }}, do plano {{ $plan->name }}</button>
             </form>
+
+            @include('admin.includes.alerts')
         </div>
     </div>
 @endsection
