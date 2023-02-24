@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ACL\PermissionController;
 use App\Http\Controllers\Admin\ACL\ProfileController;
 use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
@@ -16,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('admin')->group(function(){
+
+    /**
+     * Router Permissions
+     */
+    Route::any('permissions/search', [PermissionController::class, 'search'])->name('permissions.search');
+    Route::resource('permissions', PermissionController::class);
 
     /**
      * Routes Profiles
