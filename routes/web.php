@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->group(function(){
 
     /**
      * Plan x Profile
@@ -78,3 +81,9 @@ Route::prefix('admin')->group(function(){
      */
     Route::get('/')->name('admin.index');
 });
+
+/**
+ * Auth Routes
+ */
+Auth::routes();
+
