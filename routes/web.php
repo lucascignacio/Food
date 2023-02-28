@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ACL\PlanProfileController;
 use App\Http\Controllers\Admin\ACL\ProfileController;
 use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('admin')
-    ->namespace('Admin')
     ->middleware('auth')
     ->group(function(){
 
@@ -32,6 +32,12 @@ Route::prefix('admin')
     Route::get('plans/{id}/profiles', [PlanProfileController::class, 'profiles'])->name('plans.profiles');
     Route::get('profiles/{id}/plans', [PlanProfileController::class, 'plans'])->name('profiles.plans');
 
+
+    /**
+     * Routes Profiles
+     */
+    Route::resource('profiles', ProfileController::class);
+    Route::any('profiles/search', [ProfileController::class, 'search'])->name('profiles.search');
 
     /**
      * Permission x Profile
@@ -48,11 +54,6 @@ Route::prefix('admin')
     Route::any('permissions/search', [PermissionController::class, 'search'])->name('permissions.search');
     Route::resource('permissions', PermissionController::class);
 
-    /**
-     * Routes Profiles
-     */
-    Route::any('profiles/search', [ProfileController::class, 'search'])->name('profiles.search');
-    Route::resource('profiles', ProfileController::class);
     /*
     * Routes Details Plans
     */
@@ -81,6 +82,8 @@ Route::prefix('admin')
      */
     Route::get('/')->name('admin.index');
 });
+
+Route::get('/', [SiteController::class, 'index'])->name('site.home');
 
 /**
  * Auth Routes
