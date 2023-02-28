@@ -19,5 +19,19 @@ class PlansTableSeeder extends Seeder
             'price' => 499.99,
             'description' => 'Plano Empresarial',
         ]);
+
+        Plan::create([
+            'name' => 'Premium',
+            'url' => 'premium',
+            'price' => 299.99,
+            'description' => 'Plano Pessoal',
+        ]);
+
+        Plan::create([
+            'name' => 'Free',
+            'url' => 'free',
+            'price' => 0.00,
+            'description' => 'Plando Grátis'
+        ]);
     }
 }
