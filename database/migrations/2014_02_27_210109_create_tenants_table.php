@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('url')->unique();
             $table->string('email')->unique();
-            $table->string('logo')->unique();
+            $table->string('logo')->default(0);
 
             // Status tenant (se inativar 'N' ele perde o acesso ao sistema)
             $table->enum('active', ['Y', 'N'])->default('Y');
