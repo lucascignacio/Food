@@ -3,7 +3,7 @@
 @section('title', "Detalhes do usuário $user->name")
 
 @section('content_header')
-    <h1> Detalhes do plano <b>{{ $user->name }}</b></h1>
+    <h1> Detalhes do usuário <b>{{ $user->name }}</b></h1>
 @endsection
 
 @section('content')
