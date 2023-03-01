@@ -119,7 +119,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User Menu
+    | User Menu 
     |--------------------------------------------------------------------------
     |
     | Here you can activate and change the user menu.
@@ -135,7 +135,7 @@ return [
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
-
+ 
     /*
     |--------------------------------------------------------------------------
     | Layout
@@ -314,6 +314,11 @@ return [
         [
             'text'        => 'Categorias',
             'url'         => 'admin/categories',
+            'icon'        => 'fas fa-layer-group'
+        ],
+        [
+            'text'        => 'Produtos',
+            'url'         => 'admin/products',
             'icon'        => 'fas fa-layer-group'
         ],
 
