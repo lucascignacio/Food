@@ -321,8 +321,6 @@ return [
             'url'         => 'admin/products',
             'icon'        => 'fas fa-hamburger'
         ],
-
-      
     ],
 
     /*
