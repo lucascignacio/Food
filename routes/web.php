@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryProductController;
 use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TableController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,12 @@ Route::prefix('admin')
     ->group(function(){
 
     /**
+     * Routes Tables
+     */
+    Route::resource('tables', TableController::class);
+    Route::any('tables/search', [TableController::class, 'search'])->name('tables.search');
+
+    /**
      * Product x Category
      */
     Route::get('products/{id}/category/{idCategory}/detach', [CategoryProductController::class, 'detachCategoryProduct'])->name('products.category.detach' );
@@ -38,7 +45,7 @@ Route::prefix('admin')
     Route::get('categories/{id}/products', [CategoryProductController::class, 'products'])->name('categories.products');
         
     /**
-     * Routes Productse
+     * Routes Products
      */
     Route::resource('products', ProductController::class);
     Route::any('products/search', [ProductController::class, 'search'])->name('products.search');
