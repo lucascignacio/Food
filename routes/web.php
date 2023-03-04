@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TableController;
+use App\Http\Controllers\Admin\TenantController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,12 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')
     ->middleware('auth')
     ->group(function(){
+
+    /**
+     * Routes Tenants
+     */
+    Route::resource('tenants', TenantController::class);
+    Route::any('tenants/search', [TenantController::class, 'search'])->name('tenants.search');
 
     /**
      * Routes Tables
