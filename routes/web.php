@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ACL\PermissionController;
 use App\Http\Controllers\Admin\ACL\PermissionProfileController;
 use App\Http\Controllers\Admin\ACL\PlanProfileController;
 use App\Http\Controllers\Admin\ACL\ProfileController;
+use App\Http\Controllers\Admin\ACL\RoleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CategoryProductController;
 use App\Http\Controllers\Admin\DetailPlanController;
@@ -29,6 +30,12 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')
     ->middleware('auth')
     ->group(function(){
+
+     /**
+     * Routes Roles
+     */
+    Route::resource('roles', RoleController::class);
+    Route::any('roles/search', [RoleController::class, 'search'])->name('roles.search');
 
     /**
      * Routes Tenants
