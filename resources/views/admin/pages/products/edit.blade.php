@@ -17,7 +17,7 @@
 
                 <div class="form-group">
                     <label>Title:</label>
-                    <input type="text" name="title" class="form-control" placeholder="Title:" value="{{ $product->title ?? old('name') }}" >
+                    <input type="text" name="title" class="form-control" placeholder="Title:" value="{{ $product->title ?? old('title') }}" >
                 </div>
                 <div class="form-group">
                     <label>Preço:</label>
