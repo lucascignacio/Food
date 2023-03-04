@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ACL\PermissionController;
 use App\Http\Controllers\Admin\ACL\PermissionProfileController;
+use App\Http\Controllers\Admin\ACL\PermissionRoleController;
 use App\Http\Controllers\Admin\ACL\PlanProfileController;
 use App\Http\Controllers\Admin\ACL\ProfileController;
 use App\Http\Controllers\Admin\ACL\RoleController;
@@ -30,6 +31,16 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')
     ->middleware('auth')
     ->group(function(){
+
+    /**
+     * Permission x Role
+     */
+    Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionRole'])->name('roles.permission.detach' );
+    Route::post('roles/{id}/permissions', [PermissionRoleController::class, 'attachPermissionsRole'])->name('roles.permissions.attache' );
+    Route::any('roles/{id}/permissions/create', [PermissionRoleController::class, 'permissionsAvailable'])->name('roles.permissions.available');
+    Route::get('roles/{id}/permissions', [PermissionRoleController::class, 'permissions'])->name('roles.permissions');
+    Route::get('permissions/{id}/role', [PermissionRoleController::class, 'roles'])->name('permissions.roles');
+
 
      /**
      * Routes Roles
