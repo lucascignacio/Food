@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ACL\PermissionRoleController;
 use App\Http\Controllers\Admin\ACL\PlanProfileController;
 use App\Http\Controllers\Admin\ACL\ProfileController;
 use App\Http\Controllers\Admin\ACL\RoleController;
+use App\Http\Controllers\Admin\ACL\RoleUserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CategoryProductController;
 use App\Http\Controllers\Admin\DetailPlanController;
@@ -32,10 +33,19 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function(){
 
+     /**
+     * Role x User
+     */
+    Route::get('users/{id}/role/{idRole}/detach', [RoleUserController::class, 'detachRoleUser'])->name('users.role.detach' );
+    Route::post('users/{id}/roles', [RoleUserController::class, 'attachRolesUser'])->name('users.roles.attache' );
+    Route::any('users/{id}/roles/create', [RoleUserController::class, 'rolesAvailable'])->name('users.roles.available');
+    Route::get('users/{id}/roles', [RoleUserController::class, 'roles'])->name('users.roles');
+    Route::get('roles/{id}/users', [RoleUserController::class, 'users'])->name('roles.users');
+
     /**
      * Permission x Role
      */
-    Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionRole'])->name('roles.permission.detach' );
+    Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionRole '])->name('roles.permission.detach' );
     Route::post('roles/{id}/permissions', [PermissionRoleController::class, 'attachPermissionsRole'])->name('roles.permissions.attache' );
     Route::any('roles/{id}/permissions/create', [PermissionRoleController::class, 'permissionsAvailable'])->name('roles.permissions.available');
     Route::get('roles/{id}/permissions', [PermissionRoleController::class, 'permissions'])->name('roles.permissions');
