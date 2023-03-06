@@ -19,6 +19,17 @@ class Role extends Model
         return $this->belongsToMany(Permission::class);
     }
 
+    /**
+     *  Get Role
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * Permission not linked with this profile
+     */
     public function permissionsAvailable($filter = null)
     {
         $this->id;
