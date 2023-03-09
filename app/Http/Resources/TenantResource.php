@@ -13,11 +13,11 @@ class TenantResource extends JsonResource
      *
      * @return array<string, mixed>
      */
-    public function toArray(Request $request): array
+    public function toArray($request)
     {
         return [
             'name' => $this->name,
-            'image' => $this->logo ? url("storage/$this->logo") : '',
+            'image' => $this->logo ? url("storage/{$this->logo}") : '',
             'uuid' => $this->uuid,
             'flag' => $this->url,
             'contact' => $this->email,
