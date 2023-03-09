@@ -22,7 +22,7 @@ return new class extends Migration
          * Pivo table: permissions x roles
          */
         Schema::create('permission_role', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('permission_id');
             $table->unsignedBigInteger('role_id');
 
@@ -43,6 +43,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('permission_role');
         Schema::dropIfExists('roles');
     }
 };

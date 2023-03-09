@@ -15,7 +15,7 @@ class TenantResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return[
+        return [
             'name' => $this->name,
             'image' => $this->logo ? url("storage/$this->logo") : '',
             'uuid' => $this->uuid,

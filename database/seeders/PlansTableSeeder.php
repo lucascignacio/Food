@@ -15,7 +15,7 @@ class PlansTableSeeder extends Seeder
     {
         Plan::create([
             'name' => 'Businers',
-            'url' => 'businers',
+            'url' => 'businer',
             'price' => 499.99,
             'description' => 'Plano Empresarial',
         ]);
@@ -31,7 +31,7 @@ class PlansTableSeeder extends Seeder
             'name' => 'Free',
             'url' => 'free',
             'price' => 0.00,
-            'description' => 'Plando Grátis'
+            'description' => 'Plano Grátis'
         ]);
     }
 }

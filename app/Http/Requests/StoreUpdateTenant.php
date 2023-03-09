@@ -19,7 +19,7 @@ class StoreUpdateTenant extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
      */
-    public function rules(): array
+    public function rules()
     {
         $id = $this->segment(3);
 
@@ -37,6 +37,7 @@ class StoreUpdateTenant extends FormRequest
             'subscription_active' => ['nullable', 'boolean'],
             'subscription_suspended' => ['nullable', 'boolean'],
         ];
+
         return $rules;
     }
 }
