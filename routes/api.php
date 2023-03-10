@@ -30,7 +30,7 @@ Route::group([
 
 Route::group(['prefix' => 'v1'], function(){
     
-    Route::get('/tenants/{uuid}', [TenantApiController::class, 'show']);
+    Route::get('/tenants/{identify}', [TenantApiController::class, 'show']);
     Route::get('/tenants', [TenantApiController::class, 'index']);
 
     Route::get('/categories/{identify}}', [CategoryApiController::class, 'show']);
@@ -39,7 +39,7 @@ Route::group(['prefix' => 'v1'], function(){
     Route::get('/tables/{identify}', [TableApiController::class, 'show']);
     Route::get('/tables', [TableApiController::class, 'tablesByTenant']);
 
-    Route::get('/products/{flag}', [ProductApiController::class, 'show']);
+    Route::get('/products/{identify}', [ProductApiController::class, 'show']);
     Route::get('/products', [ProductApiController::class, 'productsByTenant']);
 
     Route::post('/client', [RegisterController::class, 'store']);
