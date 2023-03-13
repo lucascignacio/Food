@@ -13,7 +13,7 @@ use App\Observers\ClientObserver;
 use App\Observers\PlanObserver;
 use App\Observers\ProductObserver;
 use App\Observers\TableObserver;
-use App\Tenant\Observers\TenantObserver;
+use App\Observers\TenantObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
