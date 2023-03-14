@@ -43,6 +43,9 @@ Route::group(['prefix' => 'v1'], function(){
     Route::get('/products', [ProductApiController::class, 'productsByTenant']);
 
     Route::post('/client', [RegisterController::class, 'store']);
+
+    Route::post('/orders', [OrderApiController::class, 'store']);
+    Route::get('/oders/{identify}', [OrderApiController::class, 'show']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
