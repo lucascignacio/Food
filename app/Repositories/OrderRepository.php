@@ -7,11 +7,11 @@ use App\Repositories\Contracts\OrderRepositoryInterface;
 
 class OrderRepository implements OrderRepositoryInterface
 {
-    protected $entify;
+    protected $entity;
 
     public function __construct(Order $order)
     {
-        $this->entify = $order;
+        $this->entity = $order;
     }
 
     public function createNewOrder(
@@ -19,14 +19,28 @@ class OrderRepository implements OrderRepositoryInterface
         float $total,
         string $status,
         int $tenantId,
+        string $comment = '',
         $clientId = '',
-        $tableId = ''
+        $tableId = '',
     ){
-        
+        $data = [
+            'identify' => $identify,
+            'total' => $total,
+            'status' => $status,
+            'tenant_id' => $tenantId,
+            'comment' => $comment,
+        ];
+
+        if($clientId) $data['client_id'] = $clientId;
+        if($tableId) $data['table_id'] = $tableId;
+
+        $order = $this->entity->create($data);
+
+        return $order;
     }
 
     public function getOrderByIdentify(string $identify)
     {
-
+        return $this->entity->where('identify', $identify)->first();
     }
 }

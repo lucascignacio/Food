@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\TableApiController;
 use App\Http\Controllers\Api\TenantApiController;
 use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\OrderApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
