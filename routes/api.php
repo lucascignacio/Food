@@ -27,6 +27,8 @@ Route::group([
 ], function(){
     Route::get('/auth/me', [AuthClientController::class, 'me']);
     Route::post('/auth/logout', [AuthClientController::class, 'logout']);
+
+    Route::post('/auth/v1/orders', [OrderApiController::class, 'store']);
 });
 
 Route::group(['prefix' => 'v1'], function(){
@@ -45,8 +47,8 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::post('/client', [RegisterController::class, 'store']);
 
+    Route::get('/orders/{identify}', [OrderApiController::class, 'show']);
     Route::post('/orders', [OrderApiController::class, 'store']);
-    Route::get('/oders/{identify}', [OrderApiController::class, 'show']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

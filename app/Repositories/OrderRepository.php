@@ -25,10 +25,10 @@ class OrderRepository implements OrderRepositoryInterface
         $tableId = '',
     ){
         $data = [
+            'tenant_id' => $tenantId,
             'identify' => $identify,
             'total' => $total,
             'status' => $status,
-            'tenant_id' => $tenantId,
             'comment' => $comment,
         ];
 
