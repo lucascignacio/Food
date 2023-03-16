@@ -7,10 +7,10 @@ use Illuminate\Support\Str;
 
 class CategoryObserver
 {
-        /**
+    /**
      * Handle the Plan "creating" event.
      */
-    public function creating(Category $category)
+    public function creating(Category $category): void
     {
         $category->url = Str::kebab($category->name);
         $category->uuid = Str::uuid();
