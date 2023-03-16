@@ -40,7 +40,7 @@ Route::group(['prefix' => 'v1'], function(){
     Route::get('/tenants/{identify}', [TenantApiController::class, 'show']);
     Route::get('/tenants', [TenantApiController::class, 'index']);
 
-    Route::get('/categories/{identify}}', [CategoryApiController::class, 'show']);
+    Route::get('/categories/{identify}', [CategoryApiController::class, 'show']);
     Route::get('/categories', [CategoryApiController::class, 'categoriesByTenant']);
 
     Route::get('/tables/{identify}', [TableApiController::class, 'show']);
