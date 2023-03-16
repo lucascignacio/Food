@@ -25,8 +25,8 @@ class CategoryTest extends TestCase
      /**
      * Get Categories All by Tenant
      */
-    #php artisan test --filter=CategoryTest::testGetAllGategoriesByTenant
-    public function testGetAllGategoriesByTenant()
+    #php artisan test --filter=CategoryTest::testGetAllCategoriesByTenant
+    public function testGetAllCategoriesByTenant()
     {
         $tenant = Tenant::factory()->create();
 
