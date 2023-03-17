@@ -9,7 +9,7 @@
 <body>
     
     <div style="text-align: center;" class="visible-print">
-        {!! QrCode::size(300)->generate($uri); !!}
+        {!! QrCode::size(300)->generate($uri) !!}
         <p>{{ $uri }}</p>
     </div> 
 
